@@ -1,3 +1,6 @@
+<% provide(:title, @article.title) %>
+
+
 <h1> Отображение статьи </h1>
 <h2> Раздел: <%= @article.division.name %></h2>
 <h3>Название: <%= @article.title.html_safe %></h3>
