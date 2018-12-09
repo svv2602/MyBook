@@ -6,28 +6,20 @@
   </ul>
 <% end %>
 
-<% value_array = [] %>
-<% Division.all.each do |c| %>
-  <% value_array << ([]<< c.name << c.id) %>
-<% end %>
-
-
 
 <%= form_with model: @article do |f| %>
-  <div>
-    <%= f.select :division_id, options_for_select(value_array, f.object.division_id || 2) %>
-  </div>
 
   <div>
-    <%= f.label :title %>
+    <p> Выбирете раздел:
+      <%= f.select :division_id, options_for_select(division_options, f.object.division_id) %> </p>
   </div>
-  <div>
+
+  <div class="field">
+    <%= f.label :title, 'название:' %>
     <%= f.text_field :title %>
   </div>
-  <div>
+  <div class="field">
     <%= f.label :body %>
-  </div>
-  <div>
     <%= f.cktext_area :body, rows: 10 %>
   </div>
   <br>
@@ -36,3 +28,4 @@
   </div>
 <% end %>
 <br>
+

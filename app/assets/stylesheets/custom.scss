@@ -96,3 +96,15 @@ footer {
     }
   }
 }
+
+/* table */
+table {
+  width: 100%; /* Ширина таблицы в процентах */
+}
+.col1 {
+  width: 100px; /* Ширина ячейки */
+}
+
+.field input[type=text] {
+  width: 100%;
+}

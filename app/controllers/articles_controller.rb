@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.order("created_at DESC")
+    @divisions = Division.all
+    @articles = Article.includes(:division).each_with_object({}) do |article, m|
+      m[article.division] ||= []
+      m[article.division] << article
+    end
+
   end
 
   def show
