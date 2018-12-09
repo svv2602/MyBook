@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :divisions
   mount Ckeditor::Engine => '/ckeditor'
   root to: "articles#index"
 

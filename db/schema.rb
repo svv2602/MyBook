@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_08_210554) do
+ActiveRecord::Schema.define(version: 2018_12_08_214840) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "division_id"
+    t.index ["division_id"], name: "index_articles_on_division_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -30,6 +32,13 @@ ActiveRecord::Schema.define(version: 2018_12_08_210554) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "divisions", force: :cascade do |t|
+    t.float "number"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
